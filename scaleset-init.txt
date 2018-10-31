@@ -1,4 +1,8 @@
 #cloud-config
 runcmd:
-  - apt-get install nginx
+  - apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EB3E94ADBE1229CF
+  - apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 40976EAF437D05B5
+  - apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
+  - apt install default-jre -y
+  - apt-get update && sudo apt-get install nginx
   - sudo waagent -deprovision+user -force
